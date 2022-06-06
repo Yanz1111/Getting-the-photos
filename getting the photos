@@ -1,0 +1,13 @@
+from selenium import webdriver
+import time
+headers = {
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36',
+    }
+driver=webdriver.Chrome(executable_path=r'C:\Program Files\Google\Chrome\Application\chromedriver.exe')
+
+driver.get('https://www.airbnb.com/rooms/2818')
+elems = driver.find_elements_by_xpath('/html/body/div[3]/div/main/div/div/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/div/img')
+for elem in elems:
+    url = elem.get_attribute('src')
+    print(url)
